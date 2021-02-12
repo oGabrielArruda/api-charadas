@@ -1,0 +1,22 @@
+{
+  "name": "api-charadas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oGabrielArruda/api-charadas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oGabrielArruda/api-charadas/issues"
+  },
+  "homepage": "https://github.com/oGabrielArruda/api-charadas#readme",
+  "dependencies": {
+    "puppeteer": "^7.1.0"
+  }
+}
