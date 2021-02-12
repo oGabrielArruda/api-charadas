@@ -1,0 +1,16 @@
+{
+  "name": "api-charadas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/oGabrielArruda/api-charadas.git",
+  "author": "Nouani <nouanigabriel@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "dev:debug": "nodemon --inspect src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^6.5.0"
+  }
+}
