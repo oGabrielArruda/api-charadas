@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "sequelize": "^6.5.0"
+    "mongoose": "^5.11.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "sucrase": "^3.17.1"
   }
 }

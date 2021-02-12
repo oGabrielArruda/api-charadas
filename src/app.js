@@ -1,5 +1,7 @@
 import express from 'express';
 
+import './config';
+
 class App {
     constructor() {
         this.server = express();
