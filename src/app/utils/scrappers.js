@@ -1,14 +1,17 @@
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
 
-async function scrape(url) {
+async function scrape(url = 'https://www.osvigaristas.com.br/charadas') {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
     const totalPages = 133;
     const questsPerPage = 30;
 
+    let content = [];
     for(let i = 1; i <= totalPages; i++) {
         await page.goto(url + `/pagina${i}.html`);
+
+        console.log(`pagina ${i}`);
     
         for(let j = 1; j <= questsPerPage; j++) 
         {
@@ -17,10 +20,13 @@ async function scrape(url) {
         
             const questObject = await rawQuest[0].getProperty('textContent');
             const answerObject = await rawAnswer[0].getProperty('textContent');
-            console.log(questObject._remoteObject.value);
-            console.log(answerObject._remoteObject.value);     
+
+            content.push({ question: questObject._remoteObject.value, answer: answerObject._remoteObject.value });
         }
     }
     browser.close();
+
+    return content;
 }
-scrape('https://www.osvigaristas.com.br/charadas')
+
+export default scrape;
