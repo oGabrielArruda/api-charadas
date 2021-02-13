@@ -1,10 +1,10 @@
-import express from 'express';
+const express = require('express');
 
-import PuzzleController from '../controllers/PuzzleController';
+const PuzzleController = require('../controllers/PuzzleController');
 
 const routes = express.Router();
 
 routes.post('/puzzle', PuzzleController.store);
 routes.get('/puzzle', PuzzleController.index);
 
-export default routes;
+module.exports = routes;

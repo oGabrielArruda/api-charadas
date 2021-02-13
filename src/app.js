@@ -1,9 +1,9 @@
-import 'dotenv/config';
-import express from 'express';
+require('dotenv/config');
+const express = require('express');
 
-import './config';
+require('./config');
 
-import routes from './app/routes';
+const routes = require('./app/routes');
 
 class App {
     constructor() {
@@ -23,4 +23,4 @@ class App {
     }
 }
 
-export default new App().server;
+module.exports = new App().server;

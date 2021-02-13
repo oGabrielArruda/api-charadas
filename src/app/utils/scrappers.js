@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+const puppeteer = require('puppeteer');
 
 async function scrape(url = 'https://www.osvigaristas.com.br/charadas') {
     const browser = await puppeteer.launch();
@@ -29,4 +29,4 @@ async function scrape(url = 'https://www.osvigaristas.com.br/charadas') {
     return content;
 }
 
-export default scrape;
+module.exports = scrape;

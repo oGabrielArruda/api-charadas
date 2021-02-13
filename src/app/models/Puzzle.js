@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const PuzzleSchema = new mongoose.Schema({
     question: String,
     answer: String,
 });
 
-export default mongoose.model('Puzzles', PuzzleSchema);
+module.exports = mongoose.model('Puzzles', PuzzleSchema);

@@ -1,7 +1,7 @@
-import Puzzle from '../models/Puzzle';
+const Puzzle = require('../models/Puzzle');
 //const Puzzles = require('../models/Puzzles');
 
-import scrape from '../utils/scrappers';
+const scrape = require('../utils/scrappers');
 
 class PuzzleController {
     async store(req, res) {
@@ -26,4 +26,4 @@ class PuzzleController {
     }
 }
 
-export default new PuzzleController();
+module.exports = new PuzzleController();

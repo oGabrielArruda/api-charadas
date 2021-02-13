@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-import credentials from './credentials';
+const credentials = require('./credentials');
 
 function startConnection() {
     mongoose.set('useNewUrlParser', true);
@@ -12,4 +12,4 @@ function startConnection() {
     }
 }
 
-export default startConnection();
+module.exports = startConnection();
