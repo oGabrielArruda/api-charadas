@@ -6,7 +6,7 @@
   "author": "Nouani <nouanigabriel@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "start": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js"
   },
   "dependencies": {
