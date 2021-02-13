@@ -1,6 +1,9 @@
+import 'dotenv/config';
 import express from 'express';
 
 import './config';
+
+import routes from './app/routes';
 
 class App {
     constructor() {
@@ -16,7 +19,7 @@ class App {
     }
 
     routes() {
-        //this.server.use();
+        this.server.use(routes);
     }
 }
 
