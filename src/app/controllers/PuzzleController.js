@@ -1,7 +1,7 @@
 const Puzzle = require('../models/Puzzle');
-//const Puzzles = require('../models/Puzzles');
 
 const scrape = require('../utils/scrappers');
+const consts = require('../utils/consts');
 
 class PuzzleController {
     async index(req, res) {
@@ -10,9 +10,8 @@ class PuzzleController {
         if (!lang) {
             return res.status(400).json({ error: 'Language required' });
         }
-
-        const TOTAL_ITEMS = 3992;
-        const random = Math.floor(Math.random() * TOTAL_ITEMS);
+        
+        const random = Math.floor(Math.random() * consts.TOTAL_ITEMS);
         const response = await Puzzle.findOne({ lang }).skip(random);
 
         if (!response) {
@@ -25,19 +24,14 @@ class PuzzleController {
     async store(req, res) {
         const content = await scrape();
 
-        console.log('começou cadastro');
-
-        const response = [];
+        let response = [];
         await content.forEach(async c => {
             const puzzle = new Puzzle(c);
             response.push(puzzle);
             await puzzle.save();
         });
 
-        console.log('terminou cadastro');
-
         return res.json(response);
-        // return res.json({ message: "FUNCIONOU" })
     }
 
     async remove(req, res) {
