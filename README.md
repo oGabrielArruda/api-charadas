@@ -37,7 +37,9 @@
 
 ## :information_desk_person: How To Use
 
-### Public routes
+#### :unlock: Public routes
+
+##### :globe_with_meridians: REQUEST
 
 ```http
 GET /puzzle?lang=ptbr
@@ -47,11 +49,34 @@ GET /puzzle?lang=ptbr
 | :-------- | :------------ | :--------- | :-------------------------------- | :----------- |
 | `lang`    | `string`      | `query`    | There are jokes in many languages | Yes          |
 
+##### :zap: RESPONSE
+
+```javascript
+STATUS CODE: 200
+{
+  "_id": "60292b0e73850b391c8c4918",
+  "question": "Qual o doce preferido dos noivos?",
+  "answer": "Bem-casado.",
+  "lang": "ptbr",
+  "__v": 0
+}
+
+STATUS CODE: 400
+{
+  "error": "Language required"
+}
+
+STATUS CODE: 404
+{
+  "error": "Puzzle with this language was not found"
+}
+```
+
 ---
 
-### Private routes
+#### :lock: Private routes
 
-- All private routes require a security parameter. It is only possible to access the routes, passing this parameter. How does this parameter work?
+:key: All private routes require a security parameter. It is only possible to access the routes, passing this parameter. How does this parameter work?
 
 | Parameter | Type variable | Type param | Description                     | Is required? |
 | :-------- | :------------ | :--------- | :------------------------------ | :----------- |
@@ -59,13 +84,48 @@ GET /puzzle?lang=ptbr
 
 <br />
 
-- This route has no parameters
+##### :globe_with_meridians: REQUEST
+
+:exclamation: This route has no parameters
 
 ```http
 POST /puzzle
 ```
 
+##### :zap: RESPONSE
+
+```javascript
+STATUS CODE: 200
+[
+  {
+    "_id": "60292b0e73850b391c8c47e1",
+    "question": "O que o Google pai disse para o Google filho na hora do jantar?",
+    "answer": "Google, Chrome.",
+    "lang": "ptbr"
+  },
+  {
+    "_id": "60292b0e73850b391c8c47e2",
+    "question": "Eu ia convidar 20 pessoas para a churrascada, uma morreu, o que faço?",
+    "answer": "Covid 19.",
+    "lang": "ptbr"
+  },
+  ...
+]
+
+STATUS CODE: 401
+{
+  "error": "Token not provided"
+}
+
+STATUS CODE: 401
+{
+  "error": "Token invalid"
+}
+```
+
 <br />
+
+##### :globe_with_meridians: REQUEST
 
 ```http
 DELETE /puzzle/id
@@ -75,9 +135,28 @@ DELETE /puzzle/id
 | :-------- | :------------ | :--------- | :----------------------------------------------------- | :----------- |
 | `id`      | `string`      | `default`  | if you don't pass the ID all the jokes will be removed | No           |
 
+##### :zap: RESPONSE
+
+```javascript
+STATUS CODE: 200
+{
+  "message": "Successfully removed"
+}
+
+STATUS CODE: 400
+{
+  "error": "Invalid ID"
+}
+
+STATUS CODE: 404
+{
+  "error": "Puzzle was not found"
+}
+```
+
 ---
 
-### :rocket: Technologies
+## :rocket: Technologies
 
 - NodeJS
 - MongoDB
