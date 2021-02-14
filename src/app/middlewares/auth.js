@@ -7,9 +7,6 @@ const auth = async (req, res, next) => {
         return res.status(401).json({ error: 'Token not provided' });
     }
 
-    console.log(credentials.securityToken);
-    console.log(token);
-
     if (token !== credentials.securityToken) {
         return res.status(401).json({ error: 'Token invalid' });
     }

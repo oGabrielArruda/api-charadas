@@ -10,5 +10,6 @@ routes.get('/puzzle', PuzzleController.index);
 
 routes.use(authMiddleware);
 routes.post('/puzzle', PuzzleController.store);
+routes.delete('/puzzle/:id?', PuzzleController.remove);
 
 module.exports = routes;

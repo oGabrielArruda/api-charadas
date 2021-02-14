@@ -7,6 +7,8 @@ async function scrape(url = 'https://www.osvigaristas.com.br/charadas') {
     const totalPages = 133;
     const questsPerPage = 30;
 
+    console.log('iniciou scrapper');
+
     let content = [];
     for(let i = 1; i <= totalPages; i++) {
         await page.goto(url + `/pagina${i}.html`);
@@ -25,6 +27,8 @@ async function scrape(url = 'https://www.osvigaristas.com.br/charadas') {
         }
     }
     browser.close();
+
+    console.log('acabou scrapper');
 
     return content;
 }
