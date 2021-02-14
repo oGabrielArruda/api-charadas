@@ -23,7 +23,7 @@ async function scrape(url = 'https://www.osvigaristas.com.br/charadas') {
             const questObject = await rawQuest[0].getProperty('textContent');
             const answerObject = await rawAnswer[0].getProperty('textContent');
 
-            content.push({ question: questObject._remoteObject.value, answer: answerObject._remoteObject.value });
+            content.push({ question: questObject._remoteObject.value, answer: answerObject._remoteObject.value, lang: 'ptbr' });
         }
     }
     browser.close();

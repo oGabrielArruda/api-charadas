@@ -5,11 +5,21 @@ const scrape = require('../utils/scrappers');
 
 class PuzzleController {
     async index(req, res) {
+        const { lang } = req.query;
+
+        if (!lang) {
+            return res.status(400).json({ error: 'Language required' });
+        }
+
         const TOTAL_ITEMS = 3992;
         const random = Math.floor(Math.random() * TOTAL_ITEMS);
-        const item = await Puzzle.findOne().skip(random);
+        const response = await Puzzle.findOne({ lang }).skip(random);
+
+        if (!response) {
+            return res.status(404).json({ error: 'Puzzle with this language was not found' });
+        }
         
-        return res.json(item);
+        return res.json(response);
     }
 
     async store(req, res) {
@@ -20,8 +30,8 @@ class PuzzleController {
         const response = [];
         await content.forEach(async c => {
             const puzzle = new Puzzle(c);
-            await puzzle.save();
             response.push(puzzle);
+            await puzzle.save();
         });
 
         console.log('terminou cadastro');
