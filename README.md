@@ -37,9 +37,9 @@
 
 ## :information_desk_person: How To Use
 
-#### :unlock: Public routes
+### :unlock: Public routes
 
-##### :globe_with_meridians: REQUEST
+#### :globe_with_meridians: REQUEST
 
 ```http
 GET /puzzle?lang=ptbr
@@ -49,7 +49,7 @@ GET /puzzle?lang=ptbr
 | :-------- | :------------ | :--------- | :-------------------------------- | :----------- |
 | `lang`    | `string`      | `query`    | There are jokes in many languages | Yes          |
 
-##### :zap: RESPONSE
+#### :zap: RESPONSE
 
 ```javascript
 STATUS CODE: 200
@@ -74,7 +74,7 @@ STATUS CODE: 404
 
 ---
 
-#### :lock: Private routes
+### :lock: Private routes
 
 :key: All private routes require a security parameter. It is only possible to access the routes, passing this parameter. How does this parameter work?
 
@@ -84,7 +84,7 @@ STATUS CODE: 404
 
 <br />
 
-##### :globe_with_meridians: REQUEST
+#### :globe_with_meridians: REQUEST
 
 :exclamation: This route has no parameters
 
@@ -92,7 +92,7 @@ STATUS CODE: 404
 POST /puzzle
 ```
 
-##### :zap: RESPONSE
+#### :zap: RESPONSE
 
 ```javascript
 STATUS CODE: 200
@@ -125,7 +125,7 @@ STATUS CODE: 401
 
 <br />
 
-##### :globe_with_meridians: REQUEST
+#### :globe_with_meridians: REQUEST
 
 ```http
 DELETE /puzzle/id
@@ -135,7 +135,7 @@ DELETE /puzzle/id
 | :-------- | :------------ | :--------- | :----------------------------------------------------- | :----------- |
 | `id`      | `string`      | `default`  | if you don't pass the ID all the jokes will be removed | No           |
 
-##### :zap: RESPONSE
+#### :zap: RESPONSE
 
 ```javascript
 STATUS CODE: 200
