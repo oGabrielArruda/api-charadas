@@ -5,7 +5,7 @@ const scrape = require('../utils/scrappers');
 
 class PuzzleController {
     async store(req, res) {
-        const content = await scrape();
+        /*const content = await scrape();
 
         const response = [];
         await content.forEach(async c => {
@@ -14,7 +14,8 @@ class PuzzleController {
             response.push(puzzle);
         });
 
-        return res.json(response);
+        return res.json(response);*/
+        return res.json({ message: "FUNCIONOU" })
     }
 
     async index(req, res) {
